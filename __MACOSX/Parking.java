@@ -1,27 +1,22 @@
 package kz.attractor.java.__MACOSX;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Parking {
-    private int time;
-    private double money;
+    private static final List<Car> cars = Car.randomCarInParking();
 
-    public Parking(int time, double money){
-        this.time = time;
-        this.money = money;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public double getMoney() {
-        return money;
-    }
-
-    public void setMoney(double money) {
-        this.money = money;
+    private static void parkingSpace() {
+        int space = 0;
+        Collections.shuffle(cars);
+        for (Car car : cars) {
+            if (space > 20) {
+                car.setState(State.WAY);
+                continue;
+            }
+            if (car.getState() == State.PARKING) {
+                space = space + 1;
+            }
+        }
     }
 }
