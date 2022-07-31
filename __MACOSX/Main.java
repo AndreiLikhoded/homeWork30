@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Main {
-    private static final List<Car> cars = Car.randomCarInParking();
+    private static final Set<String> cars = Car.randomCarInParking();
 
     public static void main(String[] args){
         run();

@@ -9,13 +9,12 @@ public class Car {
     private int carNumber;
     private int time;
     private int money;
-    static String car;
     private State state = State.WAY;
+ private static final Set<String> cars = Car.randomCarInParking();
 
     public Car(String carName, int carNumber){
         this.carName = carName;
         this.carNumber = carNumber;
-        Car.car = "Honda, Bmw, Zhiguly";
     }
 
     public String getCarName() {
@@ -34,7 +33,7 @@ public class Car {
         this.carNumber = carNumber;
     }
 
-    public State getState() {
+   public State getState() {
         return state;
     }
 
@@ -53,34 +52,36 @@ public class Car {
     public int getMoney() {
         return money;
     }
-    private void setMoney(int i) {
-    }
 
     public void position(){
         if(new Random(25).nextInt() >= 3){
-            state = State.PARKING;
+            state = State.WAY;
         }
         if(new Random(25).nextInt() >= 3){
-            state = State.WAY;
+            state = State.PARKING;
         }
     }
 
-    public static List<Car> randomCarInParking() {
-        List<Car> cars = new ArrayList<>();
+    public static Set<String> randomCarInParking() {
+        Set<String> cars = new TreeSet<>();
         for (int i = 0; i < 50; i++) {
-            cars.add(new Car(car.substring(new Random().nextInt(car.length())), i + 1));;
+            cars.add("Zhiguly");
+            cars.add("Bmw");
+            cars.add("Honda");
+            cars.add("Toyota");
         }
         return cars;
     }
 
-    public static void parkingProcess(){
-        for(int i = 0; i < 30; i++){
-            for(int j = 0; j < 60; j++){
-                for(int k = 0; k < 24; k = k + 5){
-                    for(Car cars : car){
-                        car.
-                    }
-                }
+    private static void parkingSpace() {
+        int space = 0;
+        for (String car : cars) {
+            if (space > 20) {
+                car.
+                continue;
+            }
+            if (car.getState() == State.PARKING) {
+                space = space + 1;
             }
         }
     }

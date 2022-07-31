@@ -2,20 +2,22 @@ package kz.attractor.java.__MACOSX;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class Parking {
-    private static final List<Car> cars = Car.randomCarInParking();
+    private static final Set<String> cars = Car.randomCarInParking();
 
-    private static void parkingSpace() {
-        int space = 0;
-        Collections.shuffle(cars);
-        for (Car car : cars) {
-            if (space > 20) {
-                car.setState(State.WAY);
-                continue;
-            }
-            if (car.getState() == State.PARKING) {
-                space = space + 1;
+
+
+    public static void parkingProcess(){
+        Parking parking = new Parking();
+        for(int i = 0; i < 30; i++){
+            for(int j = 0; j < 60; j++){
+                for(int k = 0; k < 24; k = k + 5){
+                    for(String car : cars){
+
+                    }
+                }
             }
         }
     }
