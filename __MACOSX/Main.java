@@ -12,7 +12,6 @@ public class Main {
     }
     public static void run(){
 
-//        String car = String.format("number: %s, name: %s, state: %s, money: %s",car,car.getName(), car.getState(), car.getMoney()+10);
-//        System.out.println(car);
+
     }
 }
