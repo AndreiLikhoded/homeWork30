@@ -4,17 +4,18 @@ package kz.attractor.java.__MACOSX;
 import java.text.DecimalFormat;
 import java.util.*;
 
-
 public class Car {
     private String carName;
 
     private int time;
     private int money;
-    private State state = State.WAY;
- private static final Set<Car> cars = Car.randomCarInParking();
+    private State state;
 
-    public Car(String carName){
+    private static final Set<Car> cars = Car.randomCarInParking();
+
+    public Car(String carName, State state){
         this.carName = carName;
+        this.state = state;
 
     }
 
