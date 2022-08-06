@@ -1,20 +1,21 @@
 package kz.attractor.java.__MACOSX;
 
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 
 public class Car {
     private String carName;
-    private int carNumber;
+
     private int time;
     private int money;
     private State state = State.WAY;
- private static final Set<String> cars = Car.randomCarInParking();
+ private static final Set<Car> cars = Car.randomCarInParking();
 
-    public Car(String carName, int carNumber){
+    public Car(String carName){
         this.carName = carName;
-        this.carNumber = carNumber;
+
     }
 
     public String getCarName() {
@@ -23,14 +24,6 @@ public class Car {
 
     public void setCarName(String carName) {
         this.carName = carName;
-    }
-
-    public int getCarNumber() {
-        return carNumber;
-    }
-
-    public void setCarNumber(int carNumber) {
-        this.carNumber = carNumber;
     }
 
    public State getState() {
@@ -62,27 +55,26 @@ public class Car {
         }
     }
 
-    public static Set<String> randomCarInParking() {
-        Set<String> cars = new TreeSet<>();
-        for (int i = 0; i < 50; i++) {
-            cars.add("Zhiguly");
-            cars.add("Bmw");
-            cars.add("Honda");
-            cars.add("Toyota");
+    public static Set<Car> randomCarInParking() {
+        Set<Car> cars = new TreeSet<>();
+        while(cars.size() != 200){
+            cars.add(new Car(Car.carNumber(), State.WAY));
         }
         return cars;
     }
 
-    private static void parkingSpace() {
-        int space = 0;
-        for (String car : cars) {
-            if (space > 20) {
-                car.
-                continue;
-            }
-            if (car.getState() == State.PARKING) {
-                space = space + 1;
-            }
-        }
+    public static String carNumber(){
+        StringBuffer carNumber = new StringBuffer();
+        carNumber.append(randomNumber());
+
+        return String.valueOf(carNumber);
     }
+
+    private static String randomNumber(){
+        DecimalFormat df = new DecimalFormat("00");
+        int number = new Random().nextInt(100);
+
+        return df.format(number);
+    }
+
 }
